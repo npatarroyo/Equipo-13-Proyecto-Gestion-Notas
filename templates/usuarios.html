@@ -1,0 +1,92 @@
+{% extends 'menu.html' %}
+
+{% block content1 %}
+<div onshow="cargarInfo();" class="container">
+    <div class="row justify-content-center">
+        <div class="col-xl-10 col-lg-12 col-md-9">
+            <div class="card o-hidden border-2 my-1" style="box-shadow: 7px 13px 37px #000;">              
+                <div class="card-body p-0">                    
+                    <div class="row">
+                        <div class="p-5">                    
+                            <div>
+                                <h1 style="background-color: #0000; margin-top: 30px; width: 400px; margin:auto">Gestion de Usuarios</h1>
+                            </div>
+                            <form class="user" action="/addusuario" method="POST">
+                                <div class="form-group row" >
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input type="text" style="background-color:rgb(27, 26, 26); color:white; margin: 10px; padding: 10px; border-radius: 4px; margin-bottom: 2px; border: 1px; font-family: Calibri; font-size: 18px;" class="form-control form-control-user mb-3"class="form-control form-control-user mb-3" id="nombre1"
+                                            name="nombre" placeholder="Nombres">
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type="text" style="background-color:rgb(27, 26, 26); color:white; margin: 10px; padding: 10px; border-radius: 4px; margin-bottom: 2px; border: 1px; font-family: Calibri; font-size: 18px;"class="form-control form-control-user mb-3" id="nombre2"
+                                            name="apellido" placeholder="Apellidos">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input type="email"  style="background-color:rgb(27, 26, 26); color:white; margin: 10px; padding: 10px; border-radius: 4px; margin-bottom: 2px; border: 1px; font-family: Calibri; font-size: 18px;"class="form-control form-control-user mb-3" id="usuario"
+                                            name="email" placeholder="Email">
+                                    </div>
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <select style="background-color:rgb(27, 26, 26); color:white; margin: 10px; padding: 10px; border-radius: 4px; margin-bottom: 2px; border: 1px; font-family: Calibri; font-size: 18px;"class="form-select" aria-label="Default select example" id="rol" name="rol">
+                                            <option value="seleccione" selected>Seleccione</option>
+                                            <option value="Docente">Docente</option>
+                                            <option value="Estudiante">Estudiante</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-6">
+                                        <input type="password" style="background-color:rgb(27, 26, 26); color:white; margin: 10px; padding: 10px; border-radius: 4px; margin-bottom: 2px; border: 1px; font-family: Calibri; font-size: 18px;"class="form-control form-control-user"
+                                            id="exampleRepeatPassword" name="password" placeholder="Contraseña">
+                                    </div>
+                                </div>
+                                <div class="d-flex gap-2">
+                                    <button id="boton-accion" class="btn btn-primary" style="border-color: black; background-color: aliceblue; color: black; width: 100px; margin: auto;"type="submit">Agregar</button>
+                                    <button class="btn btn-danger" type="button" style="border-color: red; background-color: aliceblue; color: red; width: 100px; position:relative; right: 375px;"
+                                        onclick="vercancelar()">Cancelar</button> 
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-xl-10 col-lg-12 col-md-9">
+            <div class="card o-hidden border-1 my-1" style="box-shadow: 7px 13px 37px #000;">
+                <div class="card-body p-0">
+                    <div class="p-3">                       
+                        <table id="usuarios2" class="table">
+                            <thead>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>User Id</th>
+                                    <th>Titulo</th>
+                                    <th>Detalle</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody id="listado"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    window.onload = function () {
+        verdatos();
+    }
+</script>
+
+
+{% endblock %}
